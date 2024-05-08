@@ -1,0 +1,65 @@
+<div class="footer">
+  <div>
+    <img src="/images/logo_footer.png" class="footer_img">
+  </div>
+  <div>
+    (우)16499 경기도 수원시 영통구 월드컵로 164 송재관 710호 신경과학교실<br>
+    164, World cup-ro, Yeongtong-gu, Suwon-si, Gyeonggi-do, Republic of Korea<br>
+    Copyright©2024. Ajou Stroke Translation Lab. All Right Reserved.
+  </div>
+  <div>
+    <img src="/images/ajou.png" class="footer_img2">
+  </div>
+</div>
+
+<style>
+  .footer {
+    display: flex;
+    margin-top: 70px;
+  }
+  @media (min-width: 1200px) {
+    .footer {
+      margin-left: 8vw;
+      margin-right: 8vw;
+      padding-top: 70px;
+      padding-bottom: 40px;
+      flex-direction: column;
+      color: rgb(92, 92, 92);
+    }
+    .footer > div {
+      font-size: calc(1vw + 1px);
+      line-height: 1.4;
+      font-weight: 100;
+      padding-top: 3%;
+    }
+    .footer_img {
+      width: calc(17 * (1vw + 1px));
+    }
+    .footer_img2 {
+      width: calc(8 * (1vw + 1px));
+    }
+  }
+  @media (max-width: 1200px) {
+    .footer {
+      flex-direction: column;
+      margin-left: 3vw;
+      margin-right: 3vw;
+      padding-top: 70px;
+      padding-bottom: 40px;
+      color: rgb(92, 92, 92);
+    }
+    .footer > div {
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 100;
+      padding-top: 3%;
+    }
+    .footer_img {
+      width: 230px
+    }
+    .footer_img2 {
+      width: 100px;
+    }
+  }
+  
+</style>

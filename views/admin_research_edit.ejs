@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTL 관리자</title>
+  <script src="/js/https.js"></script>
+</head>
+<body>
+  <h1>논문 수정</h1>
+  <form action="/edit-research" method="POST">
+    <div>
+      year : <input size="10" name="year" type="text" autocomplete="off" value="<%= edit.year %>">
+    </div>
+    <div>
+      title : <input size="200" name="title" type="text" autocomplete="off" value="<%= edit.title %>">
+    </div>
+    <div>
+      journal : <input size="200" name="journal" type="text" autocomplete="off" value="<%= edit.journal %>">
+    </div>
+    <div>
+      author : <input size="200" name="author" type="text" autocomplete="off" value="<%= edit.author %>">
+    </div>
+    <div>
+      DOI : <input size="200" name="doi" type="text" autocomplete="off" value="<%= edit.doi %>">
+    </div>
+    <div>
+      IF : <input size="20" name="if" type="text" autocomplete="off" value="<%= edit.if %>">
+    </div>
+    <div>
+      url : <input size="200" name="url" type="text" autocomplete="off" value="<%= edit.url %>">
+    </div>
+    <input name="id" value="<%= edit._id %>" style="display: none;">
+    <button type="submit">수정하기</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아주뇌졸중중개연구실</title>
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="/css/font.css">
+  <script src="/js/https.js"></script>
+  <style>
+    html {
+      font-family: 'nsl', 'nsb';
+    }
+    .page-title {
+      height: 150px;
+      background-image: url('/images/bg_sub1.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
+      opacity: 100%;
+      animation: showtitle 1s;
+    }
+    @keyframes showtitle {
+      0% { opacity: 0%; }
+      100% { opacity: 100%; }
+    }
+    .page-title p {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      margin: 0;
+      font-size: 24px;
+      opacity: 100%;
+    }
+    .main {
+      margin-left: 3vw;
+      margin-right: 3vw;
+    }
+    .table1 {
+      width: 100%;
+      border-top: 2px solid #2134b8;
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 30px;
+    }
+    .table1 tr:last-child {
+      border-top: 1px solid #e5e5e5;
+    }
+    .table1 td {
+      text-align : center;
+      vertical-align : middle;
+      padding: 20px 0;
+      line-height: 25px;
+    }
+    .table1 th {
+      text-align : center;
+      vertical-align : middle;
+      background-color: #FAFAFA;
+      height: 50px;
+    }
+    #page-info {
+      padding-top: 80px;
+      padding-bottom: 20px;
+      font-size: 18px;
+    }
+    .table1 th:first-child {
+      border-right: 1px solid #e5e5e5;
+    }
+    .table1 td:first-child {
+      border-right: 1px solid #e5e5e5;
+    }
+    .table2-container {
+      overflow: auto;
+      width: 100%;
+      margin-bottom: 100px;
+    }
+    .table2 {
+      width: 100%;
+      white-space: nowrap;
+      border-top: 2px solid #2134b8;
+      border-collapse: collapse;
+    }
+    .table2 th {
+      background-color: #FAFAFA;
+      padding: 10px;
+      border: 1px solid #e5e5e5;
+    }
+    .table2 tr:first-child th:last-child {
+      border-right: none;
+    }
+    .table2 tr:first-child th:first-child {
+      border-left: none;
+    }
+    .table2 td {
+      text-align : center;
+      vertical-align : middle;
+      padding: 10px;
+      line-height: 25px;
+      border: 1px solid #e5e5e5;
+    }
+    .table2 td:first-child {
+      border-left: none;
+    }
+    .table2 tr:nth-child(3) td:last-child {
+      border-right: none;
+    }
+    .caution {
+      color: #2134b8;
+      font-size: 13px;
+      font-weight: 1000;
+    }
+    @media (max-width: 800px) {
+      .gift > h3 {
+        font-size: 18px;
+      }
+      .gift > h3::before {
+        width: 25px;
+        height: 4px;
+        background: linear-gradient(135deg, rgb(39 118 202) 0%,rgb(30 49 189) 100%);
+        content: "";
+        display: block;
+        margin-bottom: 20px;
+      }
+      .gift {
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+      }
+      #info-image {
+        width: 100%;
+      }
+      #info-image > img {
+        width: 100%;
+      }
+    }
+    @media (min-width: 800px) and (max-width: 1200px) {
+      .gift > h3 {
+        font-size: 18px;
+      }
+      .gift > h3::before {
+        width: 25px;
+        height: 4px;
+        background: linear-gradient(135deg, rgb(39 118 202) 0%,rgb(30 49 189) 100%);
+        content: "";
+        display: block;
+        margin-bottom: 20px;
+      }
+      .gift {
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+      }
+      #info-image {
+        width: 50%;
+      }
+      #info-image > img {
+        width: 100%;
+      }
+    }
+    @media (min-width: 1200px) {
+      html {
+        font-family: 'nsl', 'nsb';
+      }
+      .page-title {
+        height: 150px;
+        background-image: url('/images/bg_sub1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        opacity: 100%;
+        animation: showtitle 1s;
+      }
+      @keyframes showtitle {
+        0% { opacity: 0%; }
+        100% { opacity: 100%; }
+      }
+      .page-title p {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        margin: 0;
+        font-size: 24px;
+        opacity: 100%;
+      }
+      .main {
+        margin-left: 8vw;
+        margin-right: 8vw;
+      }
+      .table1 {
+        width: 100%;
+        border-top: 2px solid #2134b8;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border-bottom: 1px solid #e5e5e5;
+        margin-bottom: 30px;
+      }
+      .table1 tr:last-child {
+        border-top: 1px solid #e5e5e5;
+      }
+      .table1 td {
+        text-align : center;
+        vertical-align : middle;
+        padding: 20px 0;
+        line-height: 25px;
+      }
+      .table1 th {
+        text-align : center;
+        vertical-align : middle;
+        background-color: #FAFAFA;
+        height: 50px;
+      }
+      #page-info {
+        padding-top: 80px;
+        padding-bottom: 20px;
+        font-size: 18px;
+      }
+      .table1 th:first-child {
+        border-right: 1px solid #e5e5e5;
+      }
+      .table1 td:first-child {
+        border-right: 1px solid #e5e5e5;
+      }
+      .table2-container {
+        overflow: auto;
+        width: 100%;
+        margin-bottom: 100px;
+      }
+      .table2 {
+        width: 100%;
+        white-space: nowrap;
+        border-top: 2px solid #2134b8;
+        border-collapse: collapse;
+      }
+      .table2 th {
+        background-color: #FAFAFA;
+        padding: 10px;
+        border: 1px solid #e5e5e5;
+      }
+      .table2 tr:first-child th:last-child {
+        border-right: none;
+      }
+      .table2 tr:first-child th:first-child {
+        border-left: none;
+      }
+      .table2 td {
+        text-align : center;
+        vertical-align : middle;
+        padding: 10px;
+        line-height: 25px;
+        border: 1px solid #e5e5e5;
+      }
+      .table2 td:first-child {
+        border-left: none;
+      }
+      .table2 tr:nth-child(3) td:last-child {
+        border-right: none;
+      }
+      .caution {
+        color: #2134b8;
+        font-size: 13px;
+        font-weight: 1000;
+      }
+      .gift {
+        display: flex;
+        flex-direction: row;
+      }
+      .gift > div:first-child {
+        width: 50%;
+        margin-right: 2vw;
+      }
+      .gift > div:last-child {
+        width: 50%;
+        margin-left: 2vw;
+      }
+      #info-image {
+        width: 100%;
+      }
+      #info-image > img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="flex-container">
+    <%- include('nav.ejs') %>
+    <div class="page-title">
+      <p><strong>입학 및 졸업요건</strong></p>
+    </div>
+    <div class="main">
+      <div id="page-info">
+        <strong>입학요건</strong>
+      </div>
+      <div class="table1-container">
+        <table class="table1">
+          <tr>
+            <th>필수 서류</th>
+            <th>자격조건</th>
+          </tr>
+          <tr>
+            <td>입학원서 1부<br>(인터넷 접수 후 출력 본)<br>성적증명서 원본 1부<br>졸업(예정)증명서 1부<br>학업계획서 1부(A4 약 3매)</td>
+            <td>기본영어능력<br>(논문 이해 수준)</td>
+          </tr>
+        </table>
+      </div>
+      
+      <div id="page-info">
+        <strong>졸업요건</strong>
+      </div>
+      <div class="table2-container">
+        <table class="table2">
+          <tbody>
+            <tr>
+              <th rowspan="2">전공</th>
+              <th rowspan="2">학위과정</th>
+              <th colspan="2">교과과정 이수학점</th>
+              <th rowspan="2">논문</th>
+              <th rowspan="2">발표</th>
+              <th rowspan="2">공통필수</th>
+            </tr>
+            <tr>
+              <th class="bor">전공</th>
+              <th>연구</th>
+            </tr>
+            <tr>
+              <td rowspan="3"><b>의생명과학과<br>(신경과학전공)</b></td>
+              <td>석사과정</td>
+              <td>24학점</td>
+              <td>6학점</td>
+              <td>논문 1건(공저자)</td>
+              <td>학회 발표 1건 이상</td>
+              <td rowspan="6">연구 윤리, 연구노트, 논문 작성법 이수<br>영어시험(공인영어성적 대체)<br>졸업시험 통과</td>
+            </tr>
+            <tr>
+              <td class="bor">박사과정</td>
+              <td>36학점</td>
+              <td>9학점</td>
+              <td>논문 3건(주저자 1건 이상)</td>
+              <td>학회 발표 1건 이상</td>
+            </tr>
+            <tr>
+              <td class="bor">통합과정</td>
+              <td>54학점</td>
+              <td>9학점</td>
+              <td>논문 3건(주저자 1건 이상)</td>
+              <td>학회 발표 1건 이상</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><b>융합의과학과</b></td>
+              <td>석사과정</td>
+              <td>24학점</td>
+              <td>6학점</td>
+              <td colspan="2">국내 논문 1건(공저자) 또는<br>학회 발표 1건 이상</td>
+            </tr>
+            <tr>
+              <td class="bor">박사과정</td>
+              <td>36학점</td>
+              <td>9학점</td>
+              <td>국내 논문 2건이상, 국제 논문 1건 이상</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td class="bor">통합과정</td>
+              <td>54학점</td>
+              <td>9학점</td>
+              <td>국내 논문 2건이상, 국제 논문 1건 이상</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="caution">*가로로 스크롤하여 확인해주세요.</p>
+      </div>
+      <h3>
+        입학 시 제공
+      </h3>
+        <p>
+          입학 시 개인적인 역량 향상 및 연구를 위해 아래와 같은 혜택을 제공합니다.
+        </p>
+      <div class="gift">
+        <div>
+          <div id="info-image">
+            <img src="/images/sub6_1_3.jpg">
+          </div>
+          개인 프로젝트, 각종 학회 및 교육 참석 기회
+        </div>
+        <div>
+          <div id="info-image">
+            <img src="/images/sub6_1_4.jpg">
+          </div>
+          생활비 제공, 기숙사 신청 가능
+        </div>
+      </div>
+    </div>
+    <%- include('footer.ejs') %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADMIN 로그인</title>
+  <script src="/js/https.js"></script>
+</head>
+<body>
+  <h3>세션 만료 시간은 1시간입니다. (1시간 후 자동 로그아웃)</h3>
+  <form class="form-box" action="/login" method="POST">
+    <div>
+      아이디 : <input name="username" type="text" autocomplete="off">
+    </div>
+    <div>
+      비밀번호 : <input name="password" type="password" autocomplete="off">
+    </div>
+    <button class="login-btn" type="submit">로그인</button>
+  </form>
+</body>
+</html>

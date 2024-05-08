@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTL 관리자</title>
+  <script src="/js/https.js"></script>
+</head>
+<body>
+  <h1>관리자 - 논문</h1>
+  편집할 메뉴선택 : 
+  <button onclick="location.href='/'">홈으로</button>
+  <button onclick="location.href='/admin/notice'">공지사항</button>
+  <button onclick="location.href='/admin/research/2017'">논문</button>
+  <button onclick="location.href='/admin/members'">구성원</button>
+  <button onclick="location.href='/admin/gallery'">갤러리</button>
+  <button onclick="location.href='/admin/prof'">지도교수</button>
+  <br><br><hr>
+  <h1>새 논문 추가하기</h1>
+  <h3>info) 새 년도 논문이 새로 나오면 그냥 해당년도 넣고 '추가하기' 누르시면 됩니다. (레이아웃이 자동으로 생성됨) <br>[변경사항은 새로고침해야 확인 가능합니다.]</h3>
+  <div>
+    year : <input size="10" name="year" type="text" autocomplete="off" id="research_year">
+  </div>
+  <div>
+    title : <input size="200" name="title" type="text" autocomplete="off" id="research_title">
+  </div>
+  <div>
+    journal : <input size="200" name="journal" type="text" autocomplete="off" id="research_journal">
+  </div>
+  <div>
+    author : <input size="200" name="author" type="text" autocomplete="off" id="research_author">
+  </div>
+  <div>
+    DOI : <input size="200" name="doi" type="text" autocomplete="off" id="research_doi">
+  </div>
+  <div>
+    IF : <input size="20" name="impact-factor" type="text" autocomplete="off" id="research_if">
+  </div>
+  <div>
+    url : <input size="200" name="url" type="text" autocomplete="off" id="research_url">
+  </div>
+  <button class="research-add-btn">추가하기</button>
+  <br><br><hr>
+  <h2 id="year"></h2>
+  조회 년도 선택 : 
+  <% for (i=0; i<yearlist.length; i++) { %>
+    <button onclick="location.href='/admin/research/<%= yearlist[i] %>'"><%= yearlist[i] %></button>
+  <% } %><br><br>
+  <% for (let i=0; i<research.length; i++) { %>
+    <form action="/research-delete/<%= research[i]._id %>" method="POST" style="display: inline;">
+      <%= research[i].title %> 
+      <button id="delete-btn" type="submit">삭제</button>
+    </form>
+    <button id="edit-btn" onclick="location.href='/admin/research-edit/<%= research[i]._id %>'">수정</button><br>
+  <% } %>
+
+  <script>
+    let year_now = window.location.pathname.substr(-4, 4)
+    h2_list = document.querySelector('#year')
+    h2_list.innerHTML = `${year_now}년 논문 리스트 (논문 제목 옆의 버튼으로 삭제, 수정 가능)`
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/socket.io@4.7.2/client-dist/socket.io.min.js"></script>
+  <script>
+    const socket = io()
+    socket.emit('ask-join-research', 'research')
+
+    // 전송
+    document.querySelector('.research-add-btn').addEventListener('click', ()=>{
+      let research_year = document.querySelector('#research_year')
+      let research_title = document.querySelector('#research_title')
+      let research_journal = document.querySelector('#research_journal')
+      let research_author = document.querySelector('#research_author')
+      let research_doi = document.querySelector('#research_doi')
+      let research_if = document.querySelector('#research_if')
+      let research_url = document.querySelector('#research_url')
+      socket.emit('research-data', {
+        research_year : research_year.value,
+        research_title : research_title.value,
+        research_journal : research_journal.value,
+        research_author : research_author.value,
+        research_doi : research_doi.value,
+        research_if : research_if.value,
+        research_url : research_url.value
+      })
+      research_year.value = null
+      research_title.value = null
+      research_journal.value = null
+      research_author.value = null
+      research_doi.value = null
+      research_if.value = null
+      research_url.value = null
+      alert('추가되었습니다.')
+    })
+    socket.on('broadcast-research', (msg)=>{
+      console.log(msg)
+    })
+  </script>
+</body>
+</html>

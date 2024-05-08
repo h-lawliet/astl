@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTL 관리자</title>
+  <script src="/js/https.js"></script>
+</head>
+<body>
+  <h1>구성원 수정</h1>
+  <h3>사진 변경 원하시면 '파일선택' 클릭 후 원하는 사진 업로드하시면 됩니다.</h3>
+  <form action="/member-edit" method="POST" enctype="multipart/form-data">
+    사진 : <input type="file" name="member-img" accept="image/*"><br>
+    <% if (edit.part == 'neuroscience') { %>
+      <div>
+        소속 : 
+        <label><input type="radio" name="part" value="neuroscience" checked="checked">Neuroscience</label>
+        <label><input type="radio" name="part" value="digitalscience">Digital Science</label>
+        <label><input type="radio" name="part" value="clinicalresearch">Clinical Research</label>
+        <label><input type="radio" name="part" value="former">Former</label>
+      </div>
+    <% } %>
+    <% if (edit.part == 'digitalscience') { %>
+      <div>
+        소속 : 
+        <label><input type="radio" name="part" value="neuroscience">Neuroscience</label>
+        <label><input type="radio" name="part" value="digitalscience" checked="checked">Digital Science</label>
+        <label><input type="radio" name="part" value="clinicalresearch">Clinical Research</label>
+        <label><input type="radio" name="part" value="former">Former</label>
+      </div>
+    <% } %>
+    <% if (edit.part == 'clinicalresearch') { %>
+      <div>
+        소속 : 
+        <label><input type="radio" name="part" value="neuroscience">Neuroscience</label>
+        <label><input type="radio" name="part" value="digitalscience">Digital Science</label>
+        <label><input type="radio" name="part" value="clinicalresearch" checked="checked">Clinical Research</label>
+        <label><input type="radio" name="part" value="former">Former</label>
+      </div>
+    <% } %>
+    <% if (edit.part == 'former') { %>
+      <div>
+        소속 : 
+        <label><input type="radio" name="part" value="neuroscience">Neuroscience</label>
+        <label><input type="radio" name="part" value="digitalscience">Digital Science</label>
+        <label><input type="radio" name="part" value="clinicalresearch">Clinical Research</label>
+        <label><input type="radio" name="part" value="former" checked="checked">Former</label>
+      </div>
+    <% } %>
+    <div>
+      이름 : <input size="100" name="name" type="text" autocomplete="off" value="<%= edit.name %>">
+    </div>
+    <div>
+      학위 : <input size="100" name="degree" type="text" autocomplete="off" value="<%= edit.degree %>">
+    </div>
+    <div>
+      직책(former member만) : <input size="100" name="position" type="text" autocomplete="off" value="<%= edit.position %>">
+    </div>
+    <div>
+      실험실 생활(former member만) : <input size="100" name="year" type="text" autocomplete="off" value="<%= edit.year %>">
+    </div>
+    <div>
+      연구분야 : <input size="100" name="content" type="text" autocomplete="off" value="<%= edit.content %>">
+    </div>
+    <div>
+      메일주소 : <input size="100" name="mail" type="text" autocomplete="off" value="<%= edit.mail %>">
+    </div>
+    <div>
+      전화번호 : <input size="100" name="tel" type="text" autocomplete="off" value="<%= edit.tel %>">
+    </div>
+    <input name="id" value="<%= edit._id %>" style="display: none;">
+    <button class="add-btn" type="submit">수정하기</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTL 관리자</title>
+  <script src="/js/https.js"></script>
+</head>
+<body>
+  <h1>관리자 - 구성원</h1>
+  편집할 메뉴선택 : 
+  <button onclick="location.href='/'">홈으로</button>
+  <button onclick="location.href='/admin/notice'">공지사항</button>
+  <button onclick="location.href='/admin/research/2017'">논문</button>
+  <button onclick="location.href='/admin/members'">구성원</button>
+  <button onclick="location.href='/admin/gallery'">갤러리</button>
+  <button onclick="location.href='/admin/prof'">지도교수</button>
+  <br><br><hr>
+  <h3>구성원 추가 (기재할 필요가 없는 부분은 공란인 상태로 추가하시면 됩니다...)</h3>
+    <form action="/members" method="POST" enctype="multipart/form-data">
+      사진 : <input type="file" name="member-img" accept="image/*"><br>
+      <div>
+        소속 : 
+        <label><input type="radio" name="part" value="neuroscience">Neuroscience</label>
+        <label><input type="radio" name="part" value="digitalscience">Digital Science</label>
+        <label><input type="radio" name="part" value="clinicalresearch">Clinical Research</label>
+        <label><input type="radio" name="part" value="former">Former</label>
+      </div>
+      <div>
+        이름 : <input size="100" name="name" type="text" autocomplete="off">
+      </div>
+      <div>
+        학위 : <input size="100" name="degree" type="text" autocomplete="off">
+      </div>
+      <div>
+        직책(former member만) : <input size="100" name="position" type="text" autocomplete="off">
+      </div>
+      <div>
+        실험실 생활(former member만) : <input size="100" name="year" type="text" autocomplete="off">
+      </div>
+      <div>
+        연구분야 : <input size="100" name="content" type="text" autocomplete="off">
+      </div>
+      <div>
+        메일주소 : <input size="100" name="mail" type="text" autocomplete="off">
+      </div>
+      <div>
+        전화번호 : <input size="100" name="tel" type="text" autocomplete="off">
+      </div>
+      <button class="add-btn" type="submit">추가하기</button>
+    </form>
+  <h3>구성원 삭제 / 수정 (이름 옆의 버튼을 누르면 삭제 / 수정)</h3>
+    <h4>neuroscience members</h4>
+      <% for (let i=0; i<neuroscience.length; i++) { %>
+        <form class="form-box" action="/delete-member/<%= neuroscience[i]._id %>" method="POST" style="display: inline;">
+          <%= neuroscience[i].name %>
+          <button type="submit">삭제</button>
+        </form>
+        <button id="edit-btn" onclick="location.href='/admin/member-edit/<%= neuroscience[i]._id %>'">수정</button><br>
+      <% } %>
+    <h4>digitalscience members</h4>
+      <% for (let i=0; i<digitalscience.length; i++) { %>
+        <form class="form-box" action="/delete-member/<%= digitalscience[i]._id %>" method="POST" style="display: inline;">
+          <%= digitalscience[i].name %>
+          <button type="submit">삭제</button>
+        </form>
+        <button id="edit-btn" onclick="location.href='/admin/member-edit/<%= digitalscience[i]._id %>'">수정</button><br>
+      <% } %>
+    <h4>clinical research members</h4>
+      <% for (let i=0; i<clinical.length; i++) { %>
+        <form class="form-box" action="/delete-member/<%= clinical[i]._id %>" method="POST" style="display: inline;">
+          <%= clinical[i].name %>
+          <button type="submit">삭제</button>
+        </form>
+        <button id="edit-btn" onclick="location.href='/admin/member-edit/<%= clinical[i]._id %>'">수정</button><br>
+      <% } %>  
+    <h4>former members</h4>
+      <% for (let i=0; i<former.length; i++) { %>
+        <form class="form-box" action="/delete-member/<%= former[i]._id %>" method="POST" style="display: inline;">
+          <%= former[i].name %>
+          <button type="submit">삭제</button>
+        </form>
+        <button id="edit-btn" onclick="location.href='/admin/member-edit/<%= former[i]._id %>'">수정</button><br>
+      <% } %>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="f4720c66d9b0305128ce9e5361766daa9f767c29" />
+  <title>아주뇌졸중중개연구실</title>
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="/css/font.css">
+  <link rel="stylesheet" href="/css/prof.css">
+  <script src="/js/https.js"></script>
+</head>
+<body>
+  <div class="flex-container">
+    <%- include('nav.ejs') %>
+    <div class="main">
+      <div class="page-title">
+        <p><strong>지도교수</strong></p>
+      </div>
+      <div class="profile">
+        <div id="profile-pic">
+          <img id="upper-img" src="/images/sub2_1.jpg">
+        </div>
+        <div id="profile-ment">
+          <div>
+            <h2>홍지만</h2>
+            <h3>Ji Man Hong&nbsp;&nbsp;|&nbsp;&nbsp;MD, PhD.</h3>
+          </div>
+          <div>
+            <ul>
+              <li><strong>Tel.</strong> 031-219-5174</li>
+              <li><strong>Mail.</strong> dacda@hanmail.net</li>
+              <li><strong>Home.</strong> <a href="https://www.ajoumc.or.kr/biomed/" target="_blank">https://www.ajoumc.or.kr/biomed/</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="scroll_wrap">
+          <div id="scroll-element" class="btn-off" onclick="selectMenu()">
+            경력 사항
+          </div>
+          <div id="scroll-element" class="btn-off" onclick="selectMenu()">
+            교외 활동
+          </div>
+          <div id="scroll-element" class="btn-off" onclick="selectMenu()">
+            수상 이력
+          </div>
+          <div id="scroll-element" class="btn-off" onclick="selectMenu()">
+            저서
+          </div>
+        </div>
+      </div>
+    <div id="prof_list_container1" class="tab-off">
+      <div class="current_container">
+        <div class="current">현재</div>
+        <% for (let i=0; i<current_career.length; i++) { %>
+          <div class="prof_item">
+            <div><strong><%= current_career[i].year %></strong></div>
+            <div><%= current_career[i].content %></div>
+          </div>
+        <% } %>
+      </div>
+      <div class="former_container">
+        <div class="former">이전</div>
+        <% for (let i=0; i<former_career.length; i++) { %>
+          <div class="prof_item">
+            <div><strong><%= former_career[i].year %></strong></div>
+            <div><%= former_career[i].content %></div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+    <div id="prof_list_container2" class="tab-off">
+      <div class="outside_act">
+        <% for (let i=0; i<outside_act.length; i++) { %>
+          <div class="prof_item">
+            <div><%= outside_act[i].content %></div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+    <div id="prof_list_container3" class="tab-off">
+      <div class="awards">
+        <% for (let i=0; i<awards.length; i++) { %>
+          <div class="prof_item">
+            <div><strong><%= awards[i].year %></strong></div>
+            <div><%= awards[i].content %></div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+    <div id="prof_list_container4" class="tab-off">
+      <div class="books">
+        <% for (let i=0; i<books.length; i++) { %>
+          <div class="prof_item">
+            <div><strong><%= books[i].year %></strong></div>
+            <div><%= books[i].content %></div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+    <%- include('footer.ejs') %>
+  </div>
+  <script src="/js/prof.js"></script>
+</body>
+</html>

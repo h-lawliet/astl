@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTL 관리자</title>
+  <script src="/js/https.js"></script>
+</head>
+<body>
+  <h1>관리자 - 지도교수</h1>
+  편집할 메뉴선택 : 
+  <button onclick="location.href='/'">홈으로</button>
+  <button onclick="location.href='/admin/notice'">공지사항</button>
+  <button onclick="location.href='/admin/research/2017'">논문</button>
+  <button onclick="location.href='/admin/members'">구성원</button>
+  <button onclick="location.href='/admin/gallery'">갤러리</button>
+  <button onclick="location.href='/admin/prof'">지도교수</button>
+  <br><br><hr>
+  <h3>지도교수 경력사항 추가하기 (각 메뉴(현재/이전)의 최상단에 추가됨)</h3>
+    <form class="form-box" action="/prof1" method="POST">
+      <div>
+        status : 
+        <label><input type="radio" name="status" value="current" id="prof_status_current">현재</label>
+        <label><input type="radio" name="status" value="former" id="prof_status_former">이전</label>
+      </div>
+      <div>
+        년도(기간) : <input size="50" name="year" type="text" autocomplete="off" id="prof_year">
+      </div>
+      <div>
+        내용 : <input size="100" name="content" type="text" autocomplete="off" id="prof_content">
+      </div>
+      <button class="add-btn" type="submit">추가하기</button>
+    </form>
+  <h3>지도교수 교외활동 추가하기</h3>
+    <form class="form-box" action="/prof2" method="POST">
+      <div>
+        내용 : <input size="100" name="content" type="text" autocomplete="off" id="act_content">
+      </div>
+      <button class="add-btn" type="submit">추가하기</button>
+    </form>
+  <h3>지도교수 수상 이력 추가하기</h3>
+    <form class="form-box" action="/prof3" method="POST">
+      <div>
+        년도 : <input size="50" name="year" type="text" autocomplete="off" id="prof_year">
+      </div>
+      <div>
+        내용 : <input size="100" name="content" type="text" autocomplete="off" id="act_content">
+      </div>
+      <button class="add-btn" type="submit">추가하기</button>
+    </form>
+  <h3>지도교수 저서 추가하기</h3>
+    <form class="form-box" action="/prof4" method="POST">
+      <div>
+        년도 : <input size="50" name="year" type="text" autocomplete="off" id="prof_year">
+      </div>
+      <div>
+        내용 : <input size="100" name="content" type="text" autocomplete="off" id="act_content">
+      </div>
+      <button class="add-btn" type="submit">추가하기</button>
+    </form>
+</body>
+</html>

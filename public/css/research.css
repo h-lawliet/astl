@@ -1,0 +1,264 @@
+@media (max-width: 1200px) {
+  html {
+    font-family: 'nsl', 'nseb';
+    font-weight: 100;
+  }
+  .page-title {
+    height: 150px;
+    background-image: url('/images/bg_sub1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    opacity: 100%;
+    animation: showtitle 1s;
+  }
+  @keyframes showtitle {
+    0% { opacity: 0%; }
+    100% { opacity: 100%; }
+  }
+  .page-title p {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    margin: 0;
+    font-size: 24px;
+    opacity: 100%;
+  }
+  .research-ment {
+    margin-left: 3vw;
+    margin-right: 3vw;
+    padding-top: 80px;
+  }
+  .research-ment p {
+    padding-top: 20px;
+    line-height: 25px;
+  }
+  .research-ment > p::before {
+    width: 25px;
+    height: 4px;
+    background: linear-gradient(135deg, rgb(39 118 202) 0%,rgb(30 49 189) 100%);
+    content: "";
+    display: block;
+    margin-bottom: 20px;
+  }
+  .graph {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    overflow: auto;
+  }
+  .y-axis {
+    width: 15px;
+    margin-bottom: 26px;
+    border-right: 1px solid #e5e5e5;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+  .y-axis > div {
+    font-size: 10px;
+    text-align: center;
+  }
+  .graph-item {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-left: calc(2vw + 10px);
+    align-items: center;
+  }
+  #colored {
+    width: 25px;
+    background: linear-gradient(to top left, rgb(116, 33, 211), rgb(52, 52, 227));
+  }
+  #graph-year {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .wrap {
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-top: 30px;
+  }
+  .scroll_wrap {
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+  }
+  .scroll-element {
+    display: flex;
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f3f3;
+    color: #838282;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .scroll-element:hover {
+    background-image: linear-gradient(to top left, rgb(116, 33, 211), rgb(52, 52, 227));
+    color: white;
+  }
+  #scroll-text {
+    font-size: 15px;
+  }
+  .research-list-container {
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-top: 20px;
+    border-top: 1px solid #0024b6;
+  }
+  .research-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  #research-journal {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-family: 'nsl', 'nseb';
+    font-weight: 100;
+  }
+  .page-title {
+    height: 150px;
+    background-image: url('/images/bg_sub1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    opacity: 100%;
+    animation: showtitle 1s;
+  }
+  @keyframes showtitle {
+    0% { opacity: 0%; }
+    100% { opacity: 100%; }
+  }
+  .page-title p {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    margin: 0;
+    font-size: 24px;
+    opacity: 100%;
+  }
+  .research-ment {
+    margin-left: 8vw;
+    margin-right: 8vw;
+    padding-top: 80px;
+  }
+  .research-ment p {
+    padding-top: 20px;
+    font-size: calc(1vw + 3px);
+    line-height: 1.5;
+  }
+  .research-ment > p::before {
+    width: 25px;
+    height: 4px;
+    background: linear-gradient(135deg, rgb(39 118 202) 0%,rgb(30 49 189) 100%);
+    content: "";
+    display: block;
+    margin-bottom: 20px;
+  }
+  .graph {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    overflow: auto;
+  }
+  .y-axis {
+    width: 15px;
+    margin-bottom: 26px;
+    border-right: 1px solid #e5e5e5;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+  .y-axis > div {
+    font-size: 10px;
+    text-align: center;
+  }
+  .graph-item {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-left: calc(2vw + 10px);
+    align-items: center;
+  }
+  #colored {
+    width: 25px;
+    background: linear-gradient(to top left, rgb(116, 33, 211), rgb(52, 52, 227));
+  }
+  #graph-year {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .wrap {
+    margin-left: 8vw;
+    margin-right: 8vw;
+    margin-top: 30px;
+  }
+  .scroll_wrap {
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+  }
+  .scroll-element {
+    display: flex;
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f3f3;
+    color: #838282;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .scroll-element:hover {
+    background-image: linear-gradient(to top left, rgb(116, 33, 211), rgb(52, 52, 227));
+    color: white;
+  }
+  #scroll-text {
+    font-size: 15px;
+  }
+  .research-list-container {
+    margin-left: 8vw;
+    margin-right: 8vw;
+    margin-top: 20px;
+    border-top: 1px solid #0024b6;
+  }
+  .research-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  #research-journal {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 21px;
+    font-weight: 500;
+  }
+}

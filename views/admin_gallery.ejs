@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTL 관리자</title>
+  <script src="/js/https.js"></script>
+</head>
+<body>
+  <h1>관리자 - 갤러리</h1>
+  편집할 메뉴선택 : 
+  <button onclick="location.href='/'">홈으로</button>
+  <button onclick="location.href='/admin/notice'">공지사항</button>
+  <button onclick="location.href='/admin/research/2017'">논문</button>
+  <button onclick="location.href='/admin/members'">구성원</button>
+  <button onclick="location.href='/admin/gallery'">갤러리</button>
+  <button onclick="location.href='/admin/prof'">지도교수</button>
+  <br><br><hr>
+  <h3>새로운 사진 추가하기 ('ctrl + 클릭' 아니면 '드래그'로 사진 여러개 선택 가능.)</h3><br>
+  <h4>제목, 내용 없어도 추가 가능</h4>
+  <form action="/addpic" method="POST" enctype="multipart/form-data" >
+    제목 : <input type="text" name="imgtitle" autocomplete="off"><br>
+    사진 : <input type="file" name="adminimg" accept="image/*" multiple><br>
+    내용 : <textarea name="content" autocomplete="off" rows="20" cols="100"></textarea><br><br>
+    <button class="addpic-btn" type="submit">업로드</button>
+  </form>
+  <br><hr>
+  <h3>갤러리 리스트 (사진 옆의 버튼을 누르면 삭제)</h3>
+  <% for (let i=0; i<gallery.length; i++) { %>
+    <form class="form-box" action="/delete-pic/<%= gallery[i]._id %>" method="POST">
+      <img src="<%= gallery[i].imgurl[0] %>" width="30%">
+      <button type="submit">삭제</button>
+    </form>
+  <% } %>
+</body>
+</html>

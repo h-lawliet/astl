@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아주뇌졸중중개연구실</title>
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="/css/font.css">
+  <link rel="stylesheet" href="/css/notice.css">
+  <script src="/js/https.js"></script>
+</head>
+<body>
+  <div class="flex-container">
+    <%- include('nav.ejs') %>
+    <div class="main">
+      <div class="page-title">
+        <p><strong>공지사항</strong></p>
+      </div>
+      <div class="back">
+        <a href="/notice">◀ 목록</a>
+      </div>
+      <div class="notice-title">
+        <strong><%= notice_content.title %></strong>
+      </div>
+      <div class="writer">
+        <div><strong>아주뇌졸중중개연구실</strong></div>
+        <div><%= notice_content.time %></div>
+      </div>
+      <div class="notice-content">
+        <div>
+          <%- notice_content.content %>
+        </div>
+      </div>
+    </div>
+    <%- include('footer.ejs') %>
+  </div>
+</body>
+</html>

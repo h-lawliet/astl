@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    #edit-box-title {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    #edit-box-content {
+      border: 1px solid black;
+      padding: 5px;
+    }
+  </style>
+    <script src="/js/https.js"></script>
+</head>
+<body>
+  <h1>관리자 - 공지사항</h1>
+  편집할 메뉴선택 : 
+  <button onclick="location.href='/'">홈으로</button>
+  <button onclick="location.href='/admin/notice'">공지사항</button>
+  <button onclick="location.href='/admin/research/2017'">논문</button>
+  <button onclick="location.href='/admin/members'">구성원</button>
+  <button onclick="location.href='/admin/gallery'">갤러리</button>
+  <button onclick="location.href='/admin/prof'">지도교수</button>
+  <br><br><hr>
+  <h2>공지사항 등록하기</h2>
+  제목 : 
+  <div id="edit-box-title" contenteditable="true"></div>
+  <br>
+  <div class="editor-menu">
+    <button id="btn-bold">
+      <b>B</b>
+    </button>
+    <button id="btn-italic">
+      <i>I</i>
+    </button>
+    <button id="btn-underline">
+      <u>U</u>
+    </button>
+    <button id="btn-ordered-list">
+      리스트(숫자)
+    </button>
+    <button id="btn-unordered-list">
+      리스트(점)
+    </button>
+  </div>
+  <div id="edit-box-content" contenteditable="true"></div><br>
+  <button id="submit-btn">글쓰기</button>
+
+  <script>
+
+    const editor = document.getElementById('editor');
+    const btnBold = document.getElementById('btn-bold');
+    const btnItalic = document.getElementById('btn-italic');
+    const btnUnderline = document.getElementById('btn-underline');
+    const btnOrderedList = document.getElementById('btn-ordered-list');
+    const btnUnorderedList = document.getElementById('btn-unordered-list');
+
+    btnBold.addEventListener('click', function () {
+      setStyle('bold')
+    })
+
+    btnItalic.addEventListener('click', function () {
+      setStyle('italic')
+    })
+
+    btnUnderline.addEventListener('click', function () {
+        setStyle('underline')
+    })
+
+    btnOrderedList.addEventListener('click', function () {
+      setStyle('insertOrderedList')
+    });
+
+    btnUnorderedList.addEventListener('click', function () {
+      setStyle('insertUnorderedList')
+    });
+
+    function setStyle(style) {
+      document.execCommand(style);
+    }
+  </script>
+  <script>
+    const socket = io()
+    socket.emit('ask-join-notice', 'notice')
+
+    document.querySelector('#submit-btn').addEventListener('click', ()=>{
+      let notice_title = document.querySelector('#edit-box-title')
+      let notice_content = document.querySelector('#edit-box-content')
+
+      socket.emit('notice-data', {
+        notice_title : notice_title.innerHTML,
+        notice_content : notice_content.innerHTML
+      })
+      notice_title.innerHTML = null
+      notice_content.innerHTML = null
+      alert('공지사항이 등록되었습니다.')
+    })
+  </script>
+</body>
+</html>

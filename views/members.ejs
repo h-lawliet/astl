@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="f4720c66d9b0305128ce9e5361766daa9f767c29" />
+  <title>아주뇌졸중중개연구실</title>
+  <link rel="icon" href="/images/favicon.ico">
+  <link href="/css/font.css" rel="stylesheet">
+  <link href="/css/members.css" rel="stylesheet">
+  <script src="/js/https.js"></script>
+</head>
+<body>
+  <div class="flex-container">
+    <%- include('nav.ejs') %>
+    <div class="main">
+      <div class="page-title">
+        <p><strong>구성원</strong></p>
+      </div>
+      <div class="member-container">
+        <h3>Present Lab Mates</h3>
+        <div class="present">
+          <div class="neuroscience-member">
+            <h4>Neuroscience</h4>
+            <% for (let i=0; i<neuroscience.length; i++) { %>
+              <div id="member-box">
+                <div class="img-container">
+                  <div class="img-container2">
+                    <img src="<%= neuroscience[i].img %>" id="image">
+                  </div>
+                </div>
+                <div id="member-ment">
+                  <span id="member1"><strong><%= neuroscience[i].name %>&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+                  <span id="member2"><strong><%= neuroscience[i].degree %></strong></span>
+                  <div id="research-text">
+                    <%= neuroscience[i].content %>
+                  </div>
+                  <% if (neuroscience[i].mail) { %>
+                    <div id="mail"><strong>Mail.</strong> <%= neuroscience[i].mail %></div>
+                  <% } %>
+                  <% if (neuroscience[i].tel) { %>
+                    <div id="tel"><strong>Tel.</strong> <%= neuroscience[i].tel %></div>
+                  <% } %>
+                </div>
+              </div>
+            <% } %>
+          </div>
+          <div class="digital-science-member">
+            <h4>Digital Science</h4>
+            <% for (let i=0; i<digitalscience.length; i++) { %>
+              <div id="member-box">
+                <div class="img-container">
+                  <div class="img-container2">
+                    <img src="<%= digitalscience[i].img %>" id="image">
+                  </div>
+                </div>
+                <div id="member-ment">
+                  <span id="member1"><strong><%= digitalscience[i].name %>&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+                  <span id="member2"><strong><%= digitalscience[i].degree %></strong></span>
+                  <div id="research-text">
+                    <%= digitalscience[i].content %>
+                  </div>
+                  <% if (digitalscience[i].mail) { %>
+                    <div id="mail"><strong>Mail.</strong> <%= digitalscience[i].mail %></div>
+                  <% } %>
+                  <% if (digitalscience[i].tel) { %>
+                    <div id="tel"><strong>Tel.</strong> <%= digitalscience[i].tel %></div>
+                  <% } %>
+                </div>
+              </div>
+            <% } %>
+          </div>
+          <div class="clinical-research-member">
+            <h4>Clinical Research</h4>
+            <% for (let i=0; i<clinical.length; i++) { %>
+              <div id="member-box">
+                <div class="img-container">
+                  <div class="img-container2">
+                    <img src="<%= clinical[i].img %>" id="image">
+                  </div>
+                </div>
+                <div id="member-ment">
+                  <span id="member1"><strong><%= clinical[i].name %>&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+                  <span id="member2"><strong><%= clinical[i].degree %></strong></span>
+                  <div id="research-text">
+                    <%= clinical[i].content %>
+                  </div>
+                  <% if (clinical[i].mail) { %>
+                    <div id="mail"><strong>Mail.</strong> <%= clinical[i].mail %></div>
+                  <% } %>
+                  <% if (clinical[i].tel) { %>
+                    <div id="tel"><strong>Tel.</strong> <%= clinical[i].tel %></div>
+                  <% } %>
+                </div>
+              </div>
+            <% } %>
+          </div>
+        </div>
+        <h3>Former Lab Mates</h3>
+        <div class="former">
+          <% for (let i=0; i<former.length; i++) { %>
+            <div id="member-box">
+              <div class="img-container">
+                <div class="img-container2">
+                  <img src="<%= former[i].img %>" id="image">
+                </div>
+              </div>
+              <div id="member-ment">
+                <span id="member1"><strong><%= former[i].name %>&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+                <span id="member2"><strong><%= former[i].degree %></strong></span>
+                <div id="position-at">
+                  <strong><%= former[i].position %></strong>
+                </div>
+                <div id="year-at">
+                  실험실 생활 : <%= former[i].year %>
+                </div>
+                <div id="research-text">
+                  <%= former[i].content %>
+                </div>
+                <div id="mail"><strong>Mail.</strong> <%= former[i].mail %></div>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <%- include('footer.ejs') %>
+  </div>
+</body>
+</html>

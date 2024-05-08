@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="f4720c66d9b0305128ce9e5361766daa9f767c29" />
+  <title>아주뇌졸중중개연구실</title>
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="/css/font.css">
+  <link rel="stylesheet" href="/css/gallery.css">
+  <script src="/js/https.js"></script>
+</head>
+<body>
+  <div class="flex-container">
+    <%- include('nav.ejs') %>
+    <div class="main">
+      <div class="page-title">
+        <p><strong>실험실 갤러리</strong></p>
+      </div>
+      <div class="page-info">
+        Total <%= page.length %>건&emsp;|&emsp;Page <%= id %>
+      </div><br>
+      <div class="content-list">
+        <% for (let i=0; i<gallery.length; i++) { %>
+          <div class="image-container" onclick="location.href='/gallery/content/<%= gallery[i]._id %>'">
+            <div class="frame">
+              <img src="<%= gallery[i].imgurl[0] %>" width="100%">
+            </div>
+            <div>
+              <div id="gallery-title">
+                <strong><%= gallery[i].title %></strong>
+              </div>
+              <div id="gallery-time">
+                <%= gallery[i].time.slice(0, 10) %>
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+    <div class="page-bar">
+      <% for (let i=0; i<=(page.length/6); i++) { %>
+        <a href="/gallery/<%= i+1 %>"><%= i+1 %></a>
+      <% } %>
+    </div>
+    <%- include('footer.ejs') %>
+  </div>
+</body>
+</html>
