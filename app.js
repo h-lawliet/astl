@@ -215,7 +215,7 @@ app.get('/admin/research/:id', async (req, res) => {
     if (req.user.username == 'ajouadmin') {
       let id = req.params.id
       let result1 = await db.collection('research').find({year : id}).toArray()
-      let result2 = await db.collection('research').find().toArray()
+      let result2 = await db.collection('research').find().sort({_id : -1}).toArray()
       let sort = getYear(result2)
       res.render('admin_research.ejs', {research : result1, yearlist : sort})
     } else {
