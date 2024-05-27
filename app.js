@@ -89,9 +89,9 @@ app.get('/research', async (req, res) => {
     let arr = []
     for (i=0; i<sort.length; i++) {
       let result = await db.collection('research').find({year : sort[i]}).toArray()
+      result.reverse()
       arr.push(result)
     }
-    arr.reverse()
     res.render('research.ejs', {yearlist : sort, research_list : arr})
   } catch {
     console.log(err)
