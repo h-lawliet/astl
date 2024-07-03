@@ -478,18 +478,14 @@ app.post('/addpic', upload.array('adminimg'), async (req, res) => {
 
 app.post('/noticeimg', upload.array('noticeimg'), async (req, res) => {
   try {
-    if (req.body.imgtag) {
-      let imglist = []
-      for (let i=0; i<req.files.length; i++) {
-        imglist.push(req.files[i].location)
-      }
-      await db.collection('notice').updateOne({title : req.body.imgtag}, {$set : {
-        imgurl : imglist
-      }})
-      res.render('success.ejs', {success : '추가되었습니다.', url : 'notice'})
-    } else {
-      res.render('back_alert.ejs', {error : '이미지를 추가해주세요'})
+    let imglist = []
+    for (let i=0; i<req.files.length; i++) {
+      imglist.push(req.files[i].location)
     }
+    await db.collection('notice').updateOne({title : req.body.imgtag}, {$set : {
+      imgurl : imglist
+    }})
+    res.render('success.ejs', {success : '추가되었습니다.', url : 'notice'})
   } catch(error) {
     console.log(error)
   }
