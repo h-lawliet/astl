@@ -28,6 +28,13 @@
       </div>
       <div class="notice-content">
         <div>
+          <% for (let i=0; i<notice_content.imgurl.length; i++) { %>
+            <div id="notice-img">
+              <img src="<%= notice_content.imgurl[i] %>">
+            </div>
+          <% } %>
+        </div>
+        <div>
           <%- notice_content.content %>
         </div>
       </div>

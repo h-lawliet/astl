@@ -45,7 +45,7 @@ new MongoClient(url).connect().then((client) => {
   console.log('DB 연결됨')
   db = client.db('ASTL-Database')
   server.listen(process.env.PORT, () => {
-    console.log('port open')
+    console.log(`port ${process.env.PORT} open`)
   })
 }).catch((err) => {
   console.log(err)
@@ -89,7 +89,6 @@ app.get('/research', async (req, res) => {
     let arr = []
     for (i=0; i<sort.length; i++) {
       let result = await db.collection('research').find({year : sort[i]}).toArray()
-      result.reverse()
       arr.push(result)
     }
     res.render('research.ejs', {yearlist : sort, research_list : arr})
@@ -215,7 +214,7 @@ app.get('/admin/research/:id', async (req, res) => {
     if (req.user.username == 'ajouadmin') {
       let id = req.params.id
       let result1 = await db.collection('research').find({year : id}).toArray()
-      let result2 = await db.collection('research').find().sort({_id : -1}).toArray()
+      let result2 = await db.collection('research').find().toArray()
       let sort = getYear(result2)
       res.render('admin_research.ejs', {research : result1, yearlist : sort})
     } else {
@@ -477,6 +476,25 @@ app.post('/addpic', upload.array('adminimg'), async (req, res) => {
   }
 })
 
+app.post('/noticeimg', upload.array('noticeimg'), async (req, res) => {
+  try {
+    if (req.body.imgtag) {
+      let imglist = []
+      for (let i=0; i<req.files.length; i++) {
+        imglist.push(req.files[i].location)
+      }
+      await db.collection('notice').updateOne({title : req.body.imgtag}, {$set : {
+        imgurl : imglist
+      }})
+      res.render('success.ejs', {success : '추가되었습니다.', url : 'notice'})
+    } else {
+      res.render('back_alert.ejs', {error : '이미지를 추가해주세요'})
+    }
+  } catch(error) {
+    console.log(error)
+  }
+})
+
 app.post('/delete-pic/:id', async (req, res)=>{
   let id = req.params.id
   db.collection('gallery').deleteOne({_id : new ObjectId(id)})
@@ -531,7 +549,8 @@ io.on('connection', (socket)=>{
     await db.collection('notice').insertOne({
       title : data.notice_title,
       content : data.notice_content,
-      time : CurrentTime()
+      time : CurrentTime(),
+      imgurl : null
     })
   })
 })

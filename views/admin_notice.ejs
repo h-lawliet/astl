@@ -30,6 +30,12 @@
   제목 : 
   <div id="edit-box-title" contenteditable="true"></div>
   <br>
+  <form action="/noticeimg" method="POST" enctype="multipart/form-data">
+    사진 : <input type="file" name="noticeimg" accept="image/*" multiple id="notice-img">
+    <input name="imgtag" style="display: none;" type="text" id="imgtag">
+    <button type="submit" style="display: none;" id="img-submit-btn">투명 버튼</button>
+  </form>
+  <br>
   <div class="editor-menu">
     <button id="btn-bold">
       <b>B</b>
@@ -48,7 +54,7 @@
     </button>
   </div>
   <div id="edit-box-content" contenteditable="true"></div><br>
-  <button id="submit-btn">글쓰기</button>
+  <button id="submit-btn">공지사항 등록</button>
 
   <script>
 
@@ -83,6 +89,7 @@
       document.execCommand(style);
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/socket.io@4.7.2/client-dist/socket.io.min.js"></script>
   <script>
     const socket = io()
     socket.emit('ask-join-notice', 'notice')
@@ -95,8 +102,15 @@
         notice_title : notice_title.innerHTML,
         notice_content : notice_content.innerHTML
       })
+      document.querySelector('#imgtag').value = notice_title.innerHTML
+      
+      setTimeout(function() {
+        document.querySelector('#img-submit-btn').click()
+      }, 500)
+
       notice_title.innerHTML = null
       notice_content.innerHTML = null
+      console.log(document.querySelector('#imgtag').value)
       alert('공지사항이 등록되었습니다.')
     })
   </script>
