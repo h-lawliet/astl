@@ -497,15 +497,6 @@ app.post('/delete-pic/:id', async (req, res)=>{
   res.render('success.ejs', {success : '삭제가 완료되었습니다.', url : 'gallery'})
 })
 
-function CurrentTime() {
-  var current = new Date()
-  var hour = current.getHours()
-  var minute = current.getMinutes()
-  var year = current.getFullYear()
-  var month = current.getMonth()+1
-  var day = current.getDate()
-  return year + '/' + zeros(month) + '/' + zeros(day) + ' ' + zeros(hour) + ':' + zeros(minute)
-}
 function zeros(num) {
   if (num < 10) {
     return '0'+num
@@ -513,6 +504,17 @@ function zeros(num) {
   else {
     return num
   }
+}
+
+function CurrentTime() {
+  const locale = new Date().toLocaleString('en-US', { timeZone: 'Asia/Seoul' })
+  let current = new Date(locale)
+  let hour = current.getHours()
+  let minute = current.getMinutes()
+  let year = current.getFullYear()
+  let month = current.getMonth()+1
+  let day = current.getDate()
+  return year + '/' + zeros(month) + '/' + zeros(day) + ' ' + zeros(hour) + ':' + zeros(minute)
 }
 
 io.engine.use(sessionMiddleware)
