@@ -113,6 +113,9 @@
     word-break: break-all;
     line-height: 30px;
   }
+  #notice-img > img {
+    width: 100%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -224,11 +227,17 @@
   .notice-content {
     margin-left: 8vw;
     margin-right: 8vw;
-    font-size: 16px;
+    font-size: calc(0.7vw + 5px);
   }
   .notice-content > div {
     width: 100%;
     word-break: break-all;
-    line-height: 30px;
+    line-height: 200%;
+  }
+  #notice-img {
+    text-align: center;
+  }
+  #notice-img > img {
+    width: 70%;
   }
 }
